@@ -1,0 +1,20 @@
+.vs/
+.hintrc
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+
+train_booking/env/
+train_booking/venv/
+train_booking/node_modules/
+train_booking/db.sqlite3
+train_booking/debug.log
+train_booking/logs/
+train_booking/billets_pdf/
+train_booking/qr_codes/
+
+# Fichiers generes
+train_booking/media/qr_codes/
+train_booking/models/*.gguf

@@ -1,0 +1,1449 @@
+/* Modals.css - Styles VoyageurX pour tous les modals */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+  animation: voyageurxFadeIn 0.3s ease-out;
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: voyageurxSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #e1e8ed;
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.75rem 2rem;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.modal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+  background-size: 200% 100%;
+  animation: voyageurxGradient 3s ease infinite;
+}
+
+.modal-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-header h2 i {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.close-button {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.close-button i {
+  font-size: 1.2rem;
+}
+
+.modal-content {
+  padding: 2rem;
+  background: #f8fafc;
+}
+
+.modal-actions {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #e1e8ed;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  background: white;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Styles spécifiques au modal Paramètres */
+.settings-section {
+  margin-bottom: 2.5rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e1e8ed;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.settings-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.settings-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid linear-gradient(90deg, #667eea, #764ba2);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.settings-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.user-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.info-item {
+  background: #f8fafc;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background: #edf2f7;
+  transform: translateX(5px);
+}
+
+.info-item label {
+  font-weight: 600;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-item label i {
+  color: #667eea;
+}
+
+.info-item p {
+  color: #2d3748;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.setting-item:hover {
+  background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+  border-color: #cbd5e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.setting-info {
+  flex: 1;
+}
+
+.setting-info label {
+  font-weight: 600;
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.setting-info p {
+  color: #718096;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Switch toggle amélioré */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #cbd5e0, #a0aec0);
+  transition: .4s;
+  border-radius: 34px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background: white;
+  transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+  background: white;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.settings-grid,
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.voyageurx-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.voyageurx-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #5a6fd8 0%, #6b4199 100%);
+}
+
+.voyageurx-btn:active {
+  transform: translateY(0);
+}
+
+.voyageurx-btn-secondary {
+  background: #f8fafc;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+}
+
+.voyageurx-btn-secondary:hover {
+  background: #edf2f7;
+  border-color: #cbd5e0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.voyageurx-btn-danger {
+  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+}
+
+.voyageurx-btn-danger:hover {
+  background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+  box-shadow: 0 10px 20px rgba(229, 62, 62, 0.3);
+}
+
+/* Styles spécifiques au modal Historique */
+.voyageurx-filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.voyageurx-filter-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.voyageurx-filter-btn:hover {
+  border-color: #667eea;
+  color: #667eea;
+  transform: translateY(-2px);
+}
+
+.voyageurx-filter-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.voyageurx-historique-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.voyageurx-historique-item {
+  background: white;
+  border: 1px solid #e1e8ed;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.voyageurx-historique-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.voyageurx-historique-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #667eea, #764ba2);
+}
+
+.voyageurx-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.voyageurx-item-info h4 {
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.voyageurx-item-details {
+  color: #718096;
+  font-size: 0.95rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.voyageurx-item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.voyageurx-status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.voyageurx-status-reserved {
+  background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%);
+  color: #1e40af;
+}
+
+.voyageurx-status-confirmed {
+  background: linear-gradient(135deg, #d1fae5 0%, #86efac 100%);
+  color: #065f46;
+}
+
+.voyageurx-status-cancelled {
+  background: linear-gradient(135deg, #fee2e2 0%, #fca5a5 100%);
+  color: #991b1b;
+}
+
+.voyageurx-item-price {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #667eea;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.voyageurx-item-price::before {
+  content: '€';
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.voyageurx-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid #e1e8ed;
+}
+
+.voyageurx-item-date {
+  color: #718096;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.voyageurx-action-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.voyageurx-btn-download {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.voyageurx-btn-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.voyageurx-btn-cancel {
+  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.voyageurx-btn-cancel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(229, 62, 62, 0.3);
+}
+
+.voyageurx-loading,
+.voyageurx-empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #718096;
+}
+
+.voyageurx-empty-state {
+  background: white;
+  border-radius: 12px;
+  border: 2px dashed #e2e8f0;
+}
+
+.voyageurx-empty-state i {
+  font-size: 3rem;
+  color: #cbd5e0;
+  margin-bottom: 1rem;
+}
+
+.voyageurx-empty-state h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.voyageurx-empty-state p {
+  color: #718096;
+  margin-bottom: 1.5rem;
+}
+
+/* Animations VoyageurX */
+@keyframes voyageurxFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes voyageurxSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes voyageurxGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal {
+    max-width: 95%;
+    margin: 1rem;
+  }
+  
+  .modal-header {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+  }
+  
+  .user-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .settings-grid,
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .voyageurx-filters {
+    flex-direction: column;
+  }
+  
+  .voyageurx-filter-btn {
+    min-width: 100%;
+  }
+  
+  .voyageurx-item-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .voyageurx-item-actions {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .voyageurx-item-footer {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .voyageurx-action-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    border-radius: 8px;
+  }
+  
+  .modal-header {
+    padding: 1rem 1.25rem;
+  }
+  
+  .modal-content {
+    padding: 1rem;
+  }
+  
+  .settings-section {
+    padding: 1rem;
+  }
+  
+  .voyageurx-action-buttons {
+    flex-direction: column;
+  }
+  
+  .voyageurx-btn-download,
+  .voyageurx-btn-cancel {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Scrollbar personnalisée pour les modals */
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6b4199 100%);
+}
+
+/* Modals.css - Styles VoyageurX pour tous les modals */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+  animation: voyageurxFadeIn 0.3s ease-out;
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: voyageurxSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #e1e8ed;
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.75rem 2rem;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.modal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+  background-size: 200% 100%;
+  animation: voyageurxGradient 3s ease infinite;
+}
+
+.modal-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-header h2 i {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.close-button {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.close-button i {
+  font-size: 1.2rem;
+}
+
+.modal-content {
+  padding: 2rem;
+  background: #f8fafc;
+}
+
+.modal-actions {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #e1e8ed;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  background: white;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Styles spécifiques au modal Paramètres */
+.settings-section {
+  margin-bottom: 2.5rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e1e8ed;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.settings-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.settings-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid linear-gradient(90deg, #667eea, #764ba2);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.settings-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.user-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.info-item {
+  background: #f8fafc;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background: #edf2f7;
+  transform: translateX(5px);
+}
+
+.info-item label {
+  font-weight: 600;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-item label i {
+  color: #667eea;
+}
+
+.info-item p {
+  color: #2d3748;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.setting-item:hover {
+  background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+  border-color: #cbd5e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.setting-info {
+  flex: 1;
+}
+
+.setting-info label {
+  font-weight: 600;
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.setting-info p {
+  color: #718096;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Switch toggle amélioré */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #cbd5e0, #a0aec0);
+  transition: .4s;
+  border-radius: 34px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background: white;
+  transition: .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+  background: white;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.settings-grid,
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.voyageurx-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.voyageurx-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #5a6fd8 0%, #6b4199 100%);
+}
+
+.voyageurx-btn:active {
+  transform: translateY(0);
+}
+
+.voyageurx-btn-secondary {
+  background: #f8fafc;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+}
+
+.voyageurx-btn-secondary:hover {
+  background: #edf2f7;
+  border-color: #cbd5e0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.voyageurx-btn-danger {
+  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+}
+
+.voyageurx-btn-danger:hover {
+  background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+  box-shadow: 0 10px 20px rgba(229, 62, 62, 0.3);
+}
+
+/* Styles spécifiques au modal Historique */
+.voyageurx-filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.voyageurx-filter-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.voyageurx-filter-btn:hover {
+  border-color: #667eea;
+  color: #667eea;
+  transform: translateY(-2px);
+}
+
+.voyageurx-filter-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.voyageurx-historique-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.voyageurx-historique-item {
+  background: white;
+  border: 1px solid #e1e8ed;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.voyageurx-historique-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.voyageurx-historique-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #667eea, #764ba2);
+}
+
+.voyageurx-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.voyageurx-item-info h4 {
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.voyageurx-item-details {
+  color: #718096;
+  font-size: 0.95rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.voyageurx-item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.voyageurx-status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.voyageurx-status-reserved {
+  background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%);
+  color: #1e40af;
+}
+
+.voyageurx-status-confirmed {
+  background: linear-gradient(135deg, #d1fae5 0%, #86efac 100%);
+  color: #065f46;
+}
+
+.voyageurx-status-cancelled {
+  background: linear-gradient(135deg, #fee2e2 0%, #fca5a5 100%);
+  color: #991b1b;
+}
+
+.voyageurx-item-price {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #667eea;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.voyageurx-item-price::before {
+  content: '€';
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.voyageurx-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid #e1e8ed;
+}
+
+.voyageurx-item-date {
+  color: #718096;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.voyageurx-action-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.voyageurx-btn-download {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.voyageurx-btn-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.voyageurx-btn-cancel {
+  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.voyageurx-btn-cancel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(229, 62, 62, 0.3);
+}
+
+.voyageurx-loading,
+.voyageurx-empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #718096;
+}
+
+.voyageurx-empty-state {
+  background: white;
+  border-radius: 12px;
+  border: 2px dashed #e2e8f0;
+}
+
+.voyageurx-empty-state i {
+  font-size: 3rem;
+  color: #cbd5e0;
+  margin-bottom: 1rem;
+}
+
+.voyageurx-empty-state h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.voyageurx-empty-state p {
+  color: #718096;
+  margin-bottom: 1.5rem;
+}
+
+/* Animations VoyageurX */
+@keyframes voyageurxFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes voyageurxSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes voyageurxGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal {
+    max-width: 95%;
+    margin: 1rem;
+  }
+  
+  .modal-header {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+  }
+  
+  .user-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .settings-grid,
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .voyageurx-filters {
+    flex-direction: column;
+  }
+  
+  .voyageurx-filter-btn {
+    min-width: 100%;
+  }
+  
+  .voyageurx-item-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .voyageurx-item-actions {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .voyageurx-item-footer {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .voyageurx-action-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    border-radius: 8px;
+  }
+  
+  .modal-header {
+    padding: 1rem 1.25rem;
+  }
+  
+  .modal-content {
+    padding: 1rem;
+  }
+  
+  .settings-section {
+    padding: 1rem;
+  }
+  
+  .voyageurx-action-buttons {
+    flex-direction: column;
+  }
+  
+  .voyageurx-btn-download,
+  .voyageurx-btn-cancel {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Scrollbar personnalisée pour les modals */
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6b4199 100%);
+}

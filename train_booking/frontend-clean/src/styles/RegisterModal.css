@@ -1,0 +1,262 @@
+/* RegisterModal.css */
+.voyageurx-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+  }
+  
+  .voyageurx-register-modal {
+    background: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+  }
+  
+  @keyframes modalSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .voyageurx-modal-header {
+    padding: 25px 30px;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .voyageurx-modal-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .voyageurx-modal-title i {
+    margin-right: 10px;
+  }
+  
+  .voyageurx-modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+  }
+  
+  .voyageurx-modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .voyageurx-modal-body {
+    padding: 30px;
+  }
+  
+  .voyageurx-error-alert {
+    background: #fee;
+    border: 1px solid #f99;
+    color: #c00;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .voyageurx-error-alert i {
+    margin-right: 10px;
+  }
+  
+  .voyageurx-register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .voyageurx-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .voyageurx-form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .voyageurx-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .voyageurx-form-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .voyageurx-form-input {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.2s;
+  }
+  
+  .voyageurx-form-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+  
+  .voyageurx-form-input.error {
+    border-color: #f56565;
+  }
+  
+  .voyageurx-error-message {
+    color: #f56565;
+    font-size: 0.85rem;
+    margin-top: 4px;
+  }
+  
+  .voyageurx-password-hints {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 5px;
+  }
+  
+  .voyageurx-password-hints i {
+    color: #667eea;
+  }
+  
+  .voyageurx-form-footer {
+    margin-top: 20px;
+  }
+  
+  .voyageurx-submit-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .voyageurx-submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+  }
+  
+  .voyageurx-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .voyageurx-form-links {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+  }
+  
+  .voyageurx-link-btn {
+    background: none;
+    border: none;
+    color: #667eea;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0;
+    text-decoration: underline;
+  }
+  
+  .voyageurx-link-btn:hover {
+    color: #764ba2;
+  }
+  
+  .voyageurx-terms-notice {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  .voyageurx-terms-notice i {
+    color: #667eea;
+    margin-right: 8px;
+  }
+  
+  .voyageurx-terms-notice a {
+    color: #667eea;
+    text-decoration: none;
+  }
+  
+  .voyageurx-terms-notice a:hover {
+    text-decoration: underline;
+  }
+  
+  .voyageurx-modal-success {
+    text-align: center;
+    padding: 40px 30px;
+  }
+  
+  .voyageurx-success-icon {
+    font-size: 4rem;
+    color: #48bb78;
+    margin-bottom: 20px;
+  }
+  
+  .voyageurx-success-title {
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .voyageurx-success-text {
+    color: #718096;
+    margin-bottom: 10px;
+  }
